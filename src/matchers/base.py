@@ -6,6 +6,7 @@ class BaseMatcher(ABC):
     Base class that all matcher classes should inherit from in order
     to ensure uniformity.
     """
+    case_sensitive: bool
 
     @abstractmethod
     def search(self, pattern: str, text: str) -> list[int]:
