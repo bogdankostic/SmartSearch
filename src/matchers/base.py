@@ -1,4 +1,3 @@
-from typing import List
 from abc import ABC, abstractmethod
 
 
@@ -9,7 +8,7 @@ class BaseMatcher(ABC):
     """
 
     @abstractmethod
-    def search(self, pattern: str, text: str) -> List[int]:
+    def search(self, pattern: str, text: str) -> list[int]:
         """
         Should return a list containing all indices where an instance
         of pattern starts in text.
