@@ -16,11 +16,11 @@ class MatcherBaseTests:
     def test_search_returns_correct_indices_when_match(self, matcher):
         assert matcher.search("pattern", "patternpattern") == [0, 7]
 
-    def test_search_method_raises_TypeError_when_pattern_not_string(self, matcher):
+    def test_search_method_raises_type_error_when_pattern_not_string(self, matcher):
         with pytest.raises(TypeError):
             matcher.search(123, "text")
 
-    def test_search_method_raises_TypeError_when_text_not_string(self, matcher):
+    def test_search_method_raises_type_error_when_text_not_string(self, matcher):
         with pytest.raises(TypeError):
             matcher.search("pattern", 123)
 
