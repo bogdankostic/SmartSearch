@@ -2,6 +2,8 @@
 import argparse
 import os
 
+from matchers import BaseMatcher
+
 from matchers.boyer_moore import BoyerMooreMatcher
 from matchers.naive import NaiveMatcher
 
@@ -25,6 +27,34 @@ parser.add_argument("search_patterns", metavar="SEARCH_PATTERN", nargs="+",  hel
 parser.add_argument("text", metavar="TEXT_INPUT", help=TEXT_HELP)
 
 
+def process_directory(directory: str, search_patterns: list[str], matcher: BaseMatcher):
+    # iterate over files ending with .txt and search for search patterns
+    for filename in os.listdir(directory):
+        if filename.endswith(".txt"):
+            with open(f"{directory}/{filename}", "r") as file:
+                file_str = file.read()
+                for pattern in search_patterns:
+                    shifts = matcher.search(pattern, file_str)
+                    for shift in shifts:
+                        print(f"{filename}\t{pattern}\t{shift}")
+
+
+def process_file(file: str, search_patterns: list[str], matcher: BaseMatcher):
+    with open(file, "r") as file:
+        file_str = file.read()
+        for pattern in search_patterns:
+            shifts = matcher.search(pattern, file_str)
+            for shift in shifts:
+                print(f"{pattern}\t{shift}")
+
+
+def process_text(text: str, search_patterns: list[str], matcher: BaseMatcher):
+    for pattern in search_patterns:
+        shifts = matcher.search(pattern, text)
+        for shift in shifts:
+            print(f"{pattern}\t{shift}")
+
+
 def main():
     args = parser.parse_args()
     case_sensitive = not args.case_insensitive
@@ -35,31 +65,15 @@ def main():
 
     # text input is a directory
     if os.path.isdir(args.text):
-        # iterate over files ending with .txt and search for search patterns
-        for filename in os.listdir(args.text):
-            if filename.endswith(".txt"):
-                with open(f"{args.text}/{filename}", "r") as file:
-                    file_str = file.read()
-                    for pattern in args.search_patterns:
-                        shifts = matcher.search(pattern, file_str)
-                        for shift in shifts:
-                            print(f"{filename}\t{pattern}\t{shift}")
+        process_directory(args.text, args.search_patterns, matcher)
 
     # text input is a file
     elif os.path.isfile(args.text):
-        with open(args.text, "r") as file:
-            file_str = file.read()
-            for pattern in args.search_patterns:
-                shifts = matcher.search(pattern, file_str)
-                for shift in shifts:
-                    print(f"{pattern}\t{shift}")
+        process_file(args.text, args.search_patterns, matcher)
 
     # text input is a raw text
     else:
-        for pattern in args.search_patterns:
-            shifts = matcher.search(pattern, args.text)
-            for shift in shifts:
-                print(f"{pattern}\t{shift}")
+        process_text(args.text, args.search_patterns, matcher)
 
 
 if __name__ == "__main__":
