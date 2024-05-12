@@ -28,6 +28,9 @@ class BoyerMooreMatcher(BaseMatcher):
         :return: List with indices where occurrences of the search
             pattern start in the text.
         """
+        if not self._input_validation(pattern, text):
+            return []
+
         if not self.case_sensitive:
             # Lowercase search pattern and text for case-insensitive search
             pattern = pattern.lower()
