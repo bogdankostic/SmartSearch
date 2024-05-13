@@ -5,6 +5,11 @@ Throughout the project, Git and GitHub were used as tools for version control.
 The commit history can be found [here](https://github.com/bogdankostic/SmartSearch/commits/main/).
 
 ## 2) UML
+The directory [`uml`](https://github.com/bogdankostic/SmartSearch/tree/main/uml) contains the following UML
+diagrams as images and PlantUML files:
+- Class Diagram
+- Sequence Diagram
+- Component Diagram
 
 
 ## 3) Domain Driven Design
