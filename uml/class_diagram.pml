@@ -1,4 +1,5 @@
 @startuml
+title Class Diagram for SmartSearch
 
 abstract class Document {
     -embedding: list
