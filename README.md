@@ -29,7 +29,7 @@ and [SonarCloud](https://sonarcloud.io/project/overview?id=bogdankostic_SmartSea
 ## 5) Clean Code Development
 
 ## 6 & 7) Build & Continuous Delivery
-The project uses GitHub Actions for continuous integration and deployment. The workflow can be found
+The project uses GitHub Actions for continuous integration and delivery. The workflow can be found
 [here](https://github.com/bogdankostic/SmartSearch/blob/main/.github/workflows/build.yml). The workflow is triggered 
 on every push to the main branch and runs the tests, measures the test coverage, and uploads the coverage report to Coveralls.
 
