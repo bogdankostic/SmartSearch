@@ -34,6 +34,22 @@ and [SonarCloud](https://sonarcloud.io/project/overview?id=bogdankostic_SmartSea
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=bogdankostic_SmartSearch&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=bogdankostic_SmartSearch)
 
 ## 5) Clean Code Development
+Examples of clean code development principles used in the project:
+- Don't Repeat Yourself: The project uses functions and classes to avoid code duplication. 
+  [**Example**](https://github.com/bogdankostic/SmartSearch/blob/de067c87c02faebf42dcb562c5f0f391dcbe2ab2/src/matchers/base.py#L25):
+  Input validation in `BaseMatcher`.
+- Usage of type hints to specify the types of function arguments and return values. 
+  [**Example**](https://github.com/bogdankostic/SmartSearch/blob/de067c87c02faebf42dcb562c5f0f391dcbe2ab2/src/matchers/boyer_moore.py#L21)
+- Usage of docstrings to document functions and classes.  
+  [**Example**](https://github.com/bogdankostic/SmartSearch/blob/de067c87c02faebf42dcb562c5f0f391dcbe2ab2/src/matchers/naive.py#L18)
+- Usage of meaningful variable and function names.  
+  [**Example**](https://github.com/bogdankostic/SmartSearch/blob/de067c87c02faebf42dcb562c5f0f391dcbe2ab2/src/matchers/boyer_moore.py#L50)
+- Short functions that do one thing.  
+  [**Example**](https://github.com/bogdankostic/SmartSearch/blob/de067c87c02faebf42dcb562c5f0f391dcbe2ab2/src/matchers/boyer_moore.py#L76)
+
+My personal clean code development cheat sheet can be found in the [`clean_code_cheat_sheet.md`](https://github.com/bogdankostic/SmartSearch/blob/main/clean_code_cheat_sheet.md) file.
+
+
 
 ## 6 & 7) Build & Continuous Delivery
 The project uses GitHub Actions for continuous integration and delivery. The workflow can be found
