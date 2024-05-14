@@ -149,7 +149,7 @@ and documents that have the meta field `'year'` greater than or equal to 2021.
 ### 11) Functional Programming
 The project follows aspects of functional programming, for example:
 - Final data structures: data structures used are immutable, for example tuples (see [here](https://github.com/bogdankostic/SmartSearch/blob/90e9db1ce8db1d9f47793ab3f73deb82c3686996/src/matchers/boyer_moore.py#L47)).
-- Side-effect free functions: functions are designed to be side-effect free, for example the `search` function in the `NaiveMatcher` class (see [here](https://github.com/bogdankostic/SmartSearch/blob/90e9db1ce8db1d9f47793ab3f73deb82c3686996/src/matchers/naive.py#L17).
+- Side-effect free functions: functions are designed to be side-effect free, for example the `search` function in the `NaiveMatcher` class (see [here](https://github.com/bogdankostic/SmartSearch/blob/90e9db1ce8db1d9f47793ab3f73deb82c3686996/src/matchers/naive.py#L17)).
 - Anonymous functions: lambda functions are used to define a `defaultdict` (see [here](https://github.com/bogdankostic/SmartSearch/blob/90e9db1ce8db1d9f47793ab3f73deb82c3686996/src/matchers/boyer_moore.py#L87)).
 
 There was no need for higher-order functions and using functions as parameters and return values in the project, so I 
