@@ -95,11 +95,14 @@ the Domain Specific Langauge for the SmartSearch project could be inspired by SQ
 An example of a query that would use most of the features of the DSL is:
 
 ```sql
-SELECT document
-FROM document_idx
-WHERE exact_search('software engineering')
-  AND semantic_search('How to construct a DSL?', similarity = 0.8)
-  AND meta.year >= 2021 
+SELECT 
+    document
+FROM 
+    document_idx
+WHERE 
+    exact_search('software engineering')
+    AND semantic_search('How to construct a DSL?', similarity = 0.8)
+    AND meta.year >= 2021 
 ```
 
 This query would search for documents that contain the exact phrase 'software engineering',
