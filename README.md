@@ -13,6 +13,8 @@ diagrams as images and PlantUML files:
 
 
 ## 3) Domain Driven Design
+The event storming, the core domain diagram, and the relationship mapping can be found in the
+[`domain_driven_design.pdf`](https://github.com/bogdankostic/SmartSearch/blob/main/domain_driven_design.pdf) file.
 
 
 ## 4) Metrics 
