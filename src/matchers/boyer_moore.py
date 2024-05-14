@@ -18,7 +18,7 @@ class BoyerMooreMatcher(BaseMatcher):
         """
         self.case_sensitive = case_sensitive
 
-    def search(self, pattern: str, text: str) -> list[int]:
+    def search(self, pattern: str, text: str) -> tuple:
         """
         Searches for pattern in text and returns a list containing
         all indices where an instance of pattern starts in the text.
@@ -29,7 +29,7 @@ class BoyerMooreMatcher(BaseMatcher):
             pattern start in the text.
         """
         if not self._input_validation(pattern, text):
-            return []
+            return ()
 
         if not self.case_sensitive:
             # Lowercase search pattern and text for case-insensitive search
@@ -44,7 +44,7 @@ class BoyerMooreMatcher(BaseMatcher):
         last_occurrence_dict = self._compute_last_occurrence_dict(pattern)
         good_suffix_dict = self._compute_good_suffix_dict(pattern)
         current_shift = 0
-        good_shifts = []
+        good_shifts = ()
 
         # Iterate over text
         while current_shift <= text_len - pattern_len:
@@ -56,7 +56,7 @@ class BoyerMooreMatcher(BaseMatcher):
 
             # Pattern matches current text slice
             if current_char_idx < 0:
-                good_shifts.append(current_shift)
+                good_shifts += (current_shift,)
                 # Use good-suffix heuristic to get start of new text slice
                 current_shift += good_suffix_dict[-1]
 

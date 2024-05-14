@@ -14,25 +14,25 @@ class NaiveMatcher(BaseMatcher):
         """
         self.case_sensitive = case_sensitive
 
-    def search(self, pattern: str, text: str) -> list[int]:
+    def search(self, pattern: str, text: str) -> tuple:
         """
         Searches for pattern in text and returns a list containing
         all indices where an instance of pattern starts in the text.
 
         :param pattern: The search pattern.
         :param text: The text string to search in.
-        :return: List with indices where occurrences of the search
+        :return: Tuple with indices where occurrences of the search
             pattern start in the text.
         """
         if not self._input_validation(pattern, text):
-            return []
+            return ()
 
         if not self.case_sensitive:
             # Lowercase search pattern and text for case-insensitive search
             pattern = pattern.lower()
             text = text.lower()
 
-        correct_shifts = []
+        correct_shifts = ()
         text_len = len(text)
         pattern_len = len(pattern)
 
@@ -43,6 +43,6 @@ class NaiveMatcher(BaseMatcher):
             if pattern == candidate_match:
                 # Correct match, i.e. an instance of search pattern starts at
                 # current index
-                correct_shifts.append(shift)
+                correct_shifts += (shift,)
 
         return correct_shifts
