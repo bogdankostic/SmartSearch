@@ -146,6 +146,11 @@ This query would search for documents that contain the exact phrase 'software en
 documents that are semantically similar to 'How to construct a DSL?' with a similarity threshold of 80%,
 and documents that have the meta field `'year'` greater than or equal to 2021.
 
+Using a DSL that is inspired by SQL has many benefits. SQL is a powerful language that already comes
+with many features that would be useful for the SmartSearch application, such as aggregation functions, sorting, and
+filtering. Furthermore, many developers are already familiar with SQL, so they would be able to use the DSL without 
+much additional training. They would just need to learn the specific functions and features of the SmartSearch DSL.
+
 ### 11) Functional Programming
 The project follows aspects of functional programming, for example:
 - Final data structures: data structures used are immutable, for example tuples (see [here](https://github.com/bogdankostic/SmartSearch/blob/90e9db1ce8db1d9f47793ab3f73deb82c3686996/src/matchers/boyer_moore.py#L47)).
